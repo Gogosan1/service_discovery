@@ -1,0 +1,17 @@
+services:
+  discovery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: discovery-service
+    environment:
+      EUREKA_PORT: 8761
+    networks:
+      - internal_bridge
+    ports:
+      - "8761:8761"
+
+
+networks:
+  internal_bridge:
+    name: microservices-training-net
